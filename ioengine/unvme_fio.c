@@ -204,7 +204,7 @@ static int fio_unvme_getevents(struct thread_data *td, unsigned int min,
  * io_u->xfer_buflen. Residual data count may be set in io_u->resid
  * for a short read/write.
  */
-static int fio_unvme_queue(struct thread_data *td, struct io_u *io_u)
+static enum fio_q_status fio_unvme_queue(struct thread_data *td, struct io_u *io_u)
 {
     int q = td->thread_number - 1;
     void* buf = io_u->buf;
